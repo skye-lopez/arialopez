@@ -25,7 +25,6 @@ const Container = styled.div`
     width: 100%;
     align-items: center;
     justify-content: center;
-    color: whitesmoke;
 `;
 
 const NameContainer = styled.div`
@@ -41,14 +40,12 @@ const Name = styled.h1`
     font-size: 40px;
     margin: 10px;
     font-family: 'Rock Salt', cursive;
-    text-shadow: black 1px 0px 1px;
 `;
 
 const Title = styled.h1`
     margin: 10px;
     font-size: 30px;
     font-family: 'Kalam', cursive;
-    text-shadow: black 1px 0px 1px;
 `;
 
 const ButtonContainer = styled.div`
@@ -68,6 +65,4 @@ const Button = styled.button`
         text-decoration: underline;
     }
     margin: 10px 0px;
-    color: whitesmoke;
-    text-shadow: black 1px 0px 1px;
 `;

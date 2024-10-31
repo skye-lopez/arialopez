@@ -9,6 +9,7 @@ import {
     OrbitControls,
     ContactShadows,
     PerspectiveCamera,
+    MapControls,
 } from "@react-three/drei";
 import { Canvas, useFrame, ThreeElements } from '@react-three/fiber'
 import { BallCollider, CuboidCollider, Physics, RigidBody } from "@react-three/rapier";
@@ -19,7 +20,7 @@ export default function Background() {
     return (
         <CanvasContainer>
             <Canvas>
-                <ambientLight intensity={Math.PI / 2} />
+                <ambientLight intensity={2} />
                 <PerspectiveCamera
                     makeDefault
                     position={[0, 0, 20]}
@@ -41,43 +42,31 @@ export default function Background() {
                         decay={0.75}
                         distance={185}
                         penumbra={-1}
-                        intensity={400}
-                    />
-                    <spotLight
-                        position={[0, 0, -8]}
-                        color="purple"
-                        angle={0.25}
-                        decay={0.75}
-                        distance={300}
-                        penumbra={-1}
-                        intensity={400}
+                        intensity={1000}
                     />
                 </PerspectiveCamera>
-                <Clouds limit={400} material={THREE.MeshLambertMaterial}>
+                <Clouds limit={1000} material={THREE.MeshLambertMaterial}>
                     <Physics gravity={[0, 0, 0]}>
-                        <PrettyCloud seed={10} position={[10, 0, 0]} />
-                        <PrettyCloud seed={20} position={[0, 10, 10]} />
-                        <CuboidCollider position={[0, -15, 0]} args={[400, 10, 400]} />
+                        <PrettyCloud seed={30} position={[5, 0, 0]} color={"pink"} />
+                        <PrettyCloud seed={30} position={[5, 0, 0]} color={"#ee9dfa"} />
                     </Physics>
                 </Clouds>
-                <mesh scale={200}>
-                    <sphereGeometry />
-                    <meshStandardMaterial color="black" roughness={0.7} side={THREE.BackSide} />
-                </mesh>
-                <OrbitControls
+                <MapControls
                     makeDefault
                     autoRotate
-                    enableZoom={false}
+                    autoPan
+                    autoRotateSpeed={0.6}
                     enablePan={false}
-                    minPolarAngle={Math.PI / 1.7}
-                    maxPolarAngle={Math.PI / 1.7}
+                    enableZoom={false}
+                    maxPolarAngle={3}
+                    minPolarAngle={0}
                 />
             </Canvas>
         </CanvasContainer>
     );
 }
 
-function PrettyCloud({ seed, vec = new THREE.Vector3(), ...props }) {
+function PrettyCloud({ seed, color, vec = new THREE.Vector3(), ...props }) {
     const api = useRef();
     const light = useRef();
     const rig = useContext(context);
@@ -106,10 +95,11 @@ function PrettyCloud({ seed, vec = new THREE.Vector3(), ...props }) {
                 fade={30}
                 speed={0.01}
                 growth={4}
-                segments={40}
+                segments={50}
                 volume={10}
                 opacity={0.6}
-                bounds={[4, 3, 1]}
+                bounds={[9, 9, 9]}
+                color={color}
             />
             <Cloud
                 seed={props?.seed + 1}
@@ -119,7 +109,7 @@ function PrettyCloud({ seed, vec = new THREE.Vector3(), ...props }) {
                 growth={4}
                 volume={10}
                 opacity={1}
-                bounds={[10, 2, 1]}
+                bounds={[1, 2, 1]}
             />
             <pointLight
                 position={[0, 0, 0.5]}
