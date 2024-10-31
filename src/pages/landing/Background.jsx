@@ -65,8 +65,10 @@ export default function Background() {
 function PrettyCloud({ seed, color, vec = new THREE.Vector3(), ...props }) {
     const api = useRef();
     const light = useRef();
-    const rig = useContext(context);
 
+    /*
+    NOTE: This is the logic for the lightning strike effect.
+    const rig = useContext(context);
     const [flash] = useState(() => new random.FlashGen({ count: 10, minDuration: 40, maxDuration: 200 }));
     const contact = (p) => p.other.rigidBodyObject.userData?.cloud && p.totalForceMagnitute / 1000 > 100 && flash.burst();
     useFrame((state, delta) => {
@@ -74,11 +76,14 @@ function PrettyCloud({ seed, color, vec = new THREE.Vector3(), ...props }) {
         light.current.intensity = impulse * 15000;
         if (impulse === 1) rig?.current?.setIntensity(1);
     })
+
+    // NOTE: 
+    also in the <RigidBody I need to add onContactForce={contact} to restore.
+    */
     return (
         <RigidBody
             ref={api}
             userDate={{ cloud: true }}
-            onContactForce={contact}
             linearDamping={4}
             angularDamping={1}
             friction={0.1}
