@@ -4,9 +4,10 @@ import {
     createBrowserRouter,
     RouterProvider,
 } from "react-router-dom";
-import '@fontsource/rock-salt';
-import '@fontsource/kalam';
+import '@fontsource/pacifico';
+import '@fontsource/krona-one';
 import GlobalStyle from './styles/global';
+import "bootstrap-icons/font/bootstrap-icons.css"
 
 import Landing from "./pages/landing";
 import Articles from './pages/articles';
