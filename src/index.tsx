@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
+import '@fontsource/rock-salt';
+import '@fontsource/kalam';
 
 const root = ReactDOM.createRoot(
     document.getElementById('root') as HTMLElement
