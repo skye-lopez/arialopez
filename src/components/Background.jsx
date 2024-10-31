@@ -4,15 +4,11 @@ import { useRef, useState, createContext, useContext } from 'react'
 import {
     Clouds,
     Cloud,
-    CameraShake,
-    Environment,
-    OrbitControls,
-    ContactShadows,
     PerspectiveCamera,
     MapControls,
 } from "@react-three/drei";
-import { Canvas, useFrame, ThreeElements } from '@react-three/fiber'
-import { BallCollider, CuboidCollider, Physics, RigidBody } from "@react-three/rapier";
+import { Canvas, useFrame, } from '@react-three/fiber'
+import { BallCollider, Physics, RigidBody } from "@react-three/rapier";
 import { random } from "maath";
 
 const context = createContext();
