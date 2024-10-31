@@ -16,13 +16,12 @@ export default function LandingContent() {
                     <br></br>welcome to my (under construction) corner of the internet!
                 </MainText>
 
-                <ButtonGroup>
-                    <Button>&#8608; Projects</Button>
-                    <Button>&#8608; Articles</Button>
-                    <Button>&#8608; Reading List</Button>
-                    <Button>&#8608; About Me</Button>
-                </ButtonGroup>
             </BlurbContainer>
+            <ButtonGroup>
+                <Button>&#8608; Projects</Button>
+                <Button>&#8608; Articles</Button>
+                <Button>&#8608; About Me</Button>
+            </ButtonGroup>
 
         </ContentContainer>
     );
@@ -31,7 +30,9 @@ export default function LandingContent() {
 const ContentContainer = styled.div`
     display: flex;
     flex-direction: column;
-width: 100vw;
+    width: 100vw;
+    x-overflow: hidden;
+    y-overflow: hidden;
 `;
 
 const Header = styled.div`
@@ -67,13 +68,12 @@ const BlurbContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    padding: 7% 15%;
+    padding: 10% 10% 0% 10%;
 `;
 
 const MainText = styled.h1`
     font-family: 'Krona One', sans-serif;
-    font-size: 30px;
+    font-size: 20px;
 `;
 
 const HighlightText = styled.a`
@@ -84,9 +84,12 @@ const HighlightText = styled.a`
 
 const ButtonGroup = styled.div`
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    width: 85%;
+    flex-direction: column;
+    align-items: center;
+    padding: 0% 10%;
+    @media (max-width: 900px) {
+        align-items: flex-start;
+    }
 `;
 
 const Button = styled.button`
