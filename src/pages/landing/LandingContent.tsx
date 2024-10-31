@@ -12,7 +12,7 @@ export default function LandingContent() {
 
             <BlurbContainer>
                 <MainText>
-                    Welcome to my corner of the internet!<br></br>
+                    Welcome to my (under construction) corner of the internet!<br></br>
                     I'm <HighlightText>Aria Lopez</HighlightText> a <HighlightText>Fullstack Engineer</HighlightText>.
                 </MainText>
 
@@ -98,56 +98,4 @@ const Button = styled.button`
         transition: width 0.3s;
         text-decoration: underline;
     }
-`;
-
-function _LandingContent() {
-    return (
-        <Container>
-            <NameContainer>
-                <Name>Aria Lopez</Name>
-                <Title>
-                </Title>
-            </NameContainer>
-            <ButtonContainer>
-                <Button>&#8608; Projects</Button>
-                <Button>&#8608; Articles</Button>
-                <Button>&#8608; About Me</Button>
-            </ButtonContainer>
-        </Container>
-    );
-}
-
-const Container = styled.div`
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    width: 100%;
-    align-items: center;
-    justify-content: center;
-`;
-
-const NameContainer = styled.div`
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    padding: 10px 20px;
-    border-radius: 10px;
-`;
-
-const Name = styled.h1`
-    font-size: 40px;
-    margin: 10px;
-    font-family: 'Rock Salt', cursive;
-`;
-
-const Title = styled.h1`
-    margin: 10px;
-    font-size: 30px;
-    font-family: 'Kalam', cursive;
-`;
-
-const ButtonContainer = styled.div`
-    display: flex;
-    flex-wrap: wrap;
 `;
