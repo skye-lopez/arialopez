@@ -19,6 +19,7 @@ export default function LandingContent() {
                 <ButtonGroup>
                     <Button>&#8608; Projects</Button>
                     <Button>&#8608; Articles</Button>
+                    <Button>&#8608; Reading List</Button>
                     <Button>&#8608; About Me</Button>
                 </ButtonGroup>
             </BlurbContainer>
@@ -85,6 +86,7 @@ const ButtonGroup = styled.div`
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    width: 85%;
 `;
 
 const Button = styled.button`
@@ -98,4 +100,5 @@ const Button = styled.button`
         transition: width 0.3s;
         text-decoration: underline;
     }
+    margin: 0% 1%;
 `;
