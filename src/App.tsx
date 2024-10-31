@@ -1,7 +1,11 @@
+import Canvas from "./components/Canvas";
+import GlobalStyle from "./styles/global";
+
 export default function App() {
     return (
-        <div>
-            <h1>hello world!</h1>
-        </div>
+        <>
+            <GlobalStyle />
+            <Canvas />
+        </>
     );
 }
