@@ -1,8 +1,6 @@
-import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 export default function LandingContent() {
-    const navigate = useNavigate();
     return (
         <Container>
             <NameContainer>
@@ -13,7 +11,7 @@ export default function LandingContent() {
             </NameContainer>
             <ButtonContainer>
                 <Button>&#8608; Projects</Button>
-                <Button onClick={() => navigate("/articles")}>&#8608; Articles</Button>
+                <Button>&#8608; Articles</Button>
                 <Button>&#8608; About Me</Button>
             </ButtonContainer>
         </Container>
