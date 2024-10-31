@@ -12,8 +12,8 @@ export default function LandingContent() {
 
             <BlurbContainer>
                 <MainText>
-                    Welcome to my (under construction) corner of the internet!<br></br>
-                    I'm <HighlightText>Aria Lopez</HighlightText> a <HighlightText>Fullstack Engineer</HighlightText>.
+                    Hey I'm <HighlightText>Aria Lopez</HighlightText> a <HighlightText>Fullstack Engineer</HighlightText>,
+                    <br></br>welcome to my (under construction) corner of the internet!
                 </MainText>
 
                 <ButtonGroup>
