@@ -23,7 +23,7 @@ export default function Background() {
                 <PerspectiveCamera
                     makeDefault
                     position={[0, 0, 20]}
-                    fov={25}
+                    fov={50}
                     onUpdate={(self) => self.lookAt(0, 0, 0)}
                 >
                     <spotLight
@@ -43,14 +43,27 @@ export default function Background() {
                         penumbra={-1}
                         intensity={400}
                     />
+                    <spotLight
+                        position={[0, 0, -8]}
+                        color="purple"
+                        angle={0.25}
+                        decay={0.75}
+                        distance={300}
+                        penumbra={-1}
+                        intensity={400}
+                    />
                 </PerspectiveCamera>
                 <Clouds limit={400} material={THREE.MeshLambertMaterial}>
                     <Physics gravity={[0, 0, 0]}>
-                        <Pointer />
                         <PrettyCloud seed={10} position={[10, 0, 0]} />
+                        <PrettyCloud seed={20} position={[0, 10, 10]} />
                         <CuboidCollider position={[0, -15, 0]} args={[400, 10, 400]} />
                     </Physics>
                 </Clouds>
+                <mesh scale={200}>
+                    <sphereGeometry />
+                    <meshStandardMaterial color="black" roughness={0.7} side={THREE.BackSide} />
+                </mesh>
                 <OrbitControls
                     makeDefault
                     autoRotate
@@ -84,17 +97,17 @@ function PrettyCloud({ seed, vec = new THREE.Vector3(), ...props }) {
             linearDamping={4}
             angularDamping={1}
             friction={0.1}
-            colliders={false}
             {...props}
+            colliders={false}
         >
             <BallCollider args={[4]} />
             <Cloud
                 seed={props?.seed}
                 fade={30}
-                speed={0.1}
+                speed={0.01}
                 growth={4}
                 segments={40}
-                volume={6}
+                volume={10}
                 opacity={0.6}
                 bounds={[4, 3, 1]}
             />
@@ -102,11 +115,11 @@ function PrettyCloud({ seed, vec = new THREE.Vector3(), ...props }) {
                 seed={props?.seed + 1}
                 fade={30}
                 position={[0, 1, 0]}
-                speed={0.5}
+                speed={0.1}
                 growth={4}
                 volume={10}
                 opacity={1}
-                bounds={[6, 2, 1]}
+                bounds={[10, 2, 1]}
             />
             <pointLight
                 position={[0, 0, 0.5]}
